@@ -1,1 +1,6 @@
 -e git+https://github.com/django/django.git@b4c80238a2b6c3f9fb7437d216082315c601055b#egg=Django-dev
+django-vanilla-views==1.0.3
+psycopg2==2.5.3
+python-dateutil==1.5
+python-magic==0.4.6
+xlrd==0.9.3

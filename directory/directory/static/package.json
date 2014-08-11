@@ -1,0 +1,17 @@
+{
+  "name": "ocw-mainsite",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-sass": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-less": "~0.8.3",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-macreload": "~0.1.3",
+    "grunt-pixrem": "~0.1.2"
+  },
+  "dependencies": {
+    "grunt": "~0.4.5"
+  }
+}

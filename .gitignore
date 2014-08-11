@@ -22,6 +22,12 @@ var/
 .installed.cfg
 *.egg
 
+# Static files
+.*
+node_modules/
+bower_components/
+
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt

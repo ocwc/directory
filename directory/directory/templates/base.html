@@ -1,0 +1,51 @@
+{% load staticfiles %}<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}The Open Professionals Directory{% endblock %}</title>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<meta name="google-translate-customization" content="d3bf6f511902d7f2-750e02196618cb43-gadc8982319c58076-15">
+
+	<link rel="stylesheet" href="{% static "build/css/app.css" %}">
+</head>
+
+<body>
+	<div class="header">
+		<div class="row header-row">
+			<div class="show-for-medium-up medium-2 columns right text-center tab members">
+				<a href="http://members.oeconsortium.org" class="member-portal">Members Portal</a>
+			</div>
+			<div class="show-for-medium-up medium-3 large-2 columns tab right translation">
+				<div id="google_translate_element"></div><script type="text/javascript">
+				function googleTranslateElementInit() {
+				  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true, autoDisplay: false}, 'google_translate_element');
+				}
+				</script>
+				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-12 medium-4 left columns">
+				<a href="/"><img src="http://www.oeconsortium.org/wp-content/themes/ocwc-mainsite/images/logo.png" alt="The Open Education Consortium" class="logo" /></a>
+			</div>
+			<div class="small-12 medium-3 right columns search-form-row">
+				<form class="header-search" method="GET" action="/courses/search/">
+					<input placeholder="Search for open courses ..." name="search">
+					<i class="icon-search header-search-icon"></i>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="main-wrapper">
+		{% block contents %}{% endblock %}
+	</div>
+
+	<script type="text/javascript" src="{% static "build/js/script.min.js" %}"></script>
+	<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-4248822-3']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+	
+</body>
+</html>
