@@ -1,0 +1,275 @@
+[
+{
+    "fields": {
+        "name": "Oversight of open education at an institution"
+    },
+    "pk": 1,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Open Education policy development"
+    },
+    "pk": 2,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Implementation of open education policies"
+    },
+    "pk": 3,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Open licenses"
+    },
+    "pk": 4,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Business Models for open education"
+    },
+    "pk": 5,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Fundraising for open education projects"
+    },
+    "pk": 6,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Research in open education"
+    },
+    "pk": 7,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Accessibility in open education"
+    },
+    "pk": 8,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Assessment and accreditation of learning through open education"
+    },
+    "pk": 9,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Awareness raising and outreach"
+    },
+    "pk": 10,
+    "model": "web.generalexpertise"
+},
+{
+    "fields": {
+        "name": "Authoring OER"
+    },
+    "pk": 1,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "Using/remixing OER for face to face education"
+    },
+    "pk": 2,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "Using/remixing OER for online education"
+    },
+    "pk": 3,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "OER project management"
+    },
+    "pk": 4,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "Instructional design using OER"
+    },
+    "pk": 5,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "Peer review of OER"
+    },
+    "pk": 6,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "Faculty adoption of OER"
+    },
+    "pk": 7,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "Libraries and OER"
+    },
+    "pk": 8,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "Technology for OER"
+    },
+    "pk": 9,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "OER and workforce development"
+    },
+    "pk": 10,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "OER and lifelong learning"
+    },
+    "pk": 11,
+    "model": "web.oerexpertise"
+},
+{
+    "fields": {
+        "name": "Open Access policy development"
+    },
+    "pk": 1,
+    "model": "web.openaccessexpertise"
+},
+{
+    "fields": {
+        "name": "Open Access project management"
+    },
+    "pk": 2,
+    "model": "web.openaccessexpertise"
+},
+{
+    "fields": {
+        "name": "Open Access publishing"
+    },
+    "pk": 3,
+    "model": "web.openaccessexpertise"
+},
+{
+    "fields": {
+        "name": "Peer review in open access journals"
+    },
+    "pk": 4,
+    "model": "web.openaccessexpertise"
+},
+{
+    "fields": {
+        "name": "Implementation of open access practices"
+    },
+    "pk": 5,
+    "model": "web.openaccessexpertise"
+},
+{
+    "fields": {
+        "name": "Authoring MOOCs"
+    },
+    "pk": 1,
+    "model": "web.moocexpertise"
+},
+{
+    "fields": {
+        "name": "Facilitating MOOCs"
+    },
+    "pk": 2,
+    "model": "web.moocexpertise"
+},
+{
+    "fields": {
+        "name": "MOOC instructional design"
+    },
+    "pk": 3,
+    "model": "web.moocexpertise"
+},
+{
+    "fields": {
+        "name": "Openly licensed content in MOOCs"
+    },
+    "pk": 4,
+    "model": "web.moocexpertise"
+},
+{
+    "fields": {
+        "name": "Technology for MOOCs"
+    },
+    "pk": 5,
+    "model": "web.moocexpertise"
+},
+{
+    "fields": {
+        "name": "Overall project management for MOOC development"
+    },
+    "pk": 6,
+    "model": "web.moocexpertise"
+},
+{
+    "fields": {
+        "name": "Using MOOCs in formal education programs"
+    },
+    "pk": 7,
+    "model": "web.moocexpertise"
+},
+{
+    "fields": {
+        "name": "Africa"
+    },
+    "pk": 1,
+    "model": "web.region"
+},
+{
+    "fields": {
+        "name": "Asia/Pacific"
+    },
+    "pk": 2,
+    "model": "web.region"
+},
+{
+    "fields": {
+        "name": "Europe"
+    },
+    "pk": 3,
+    "model": "web.region"
+},
+{
+    "fields": {
+        "name": "North America"
+    },
+    "pk": 4,
+    "model": "web.region"
+},
+{
+    "fields": {
+        "name": "South America"
+    },
+    "pk": 5,
+    "model": "web.region"
+},
+{
+    "fields": {
+        "name": "Central America"
+    },
+    "pk": 6,
+    "model": "web.region"
+}
+]
