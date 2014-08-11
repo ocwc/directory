@@ -39,7 +39,7 @@ class Address(models.Model):
 	country = models.CharField(max_length=255, blank=True)
 
 	def __str__(self):
-		return self.name
+		return self.country
 
 class Person(models.Model):
 	first_name = models.CharField(max_length=255)
@@ -57,18 +57,18 @@ class Person(models.Model):
 	language_conversational = models.TextField(blank=True)
 
 	general_expertise = models.ManyToManyField(GeneralExpertise, null=True)
-	general_expertise_other = models.CharField(max_length=255, blank=True)
+	general_expertise_other = models.TextField(max_length=255, blank=True)
 
 	oer_expertise = models.ManyToManyField(OERExpertise, null=True)
-	oer_expertise_other = models.CharField(max_length=255, blank=True)
+	oer_expertise_other = models.TextField(blank=True)
 
 	openacess_expertise = models.ManyToManyField(OpenAccessExpertise, null=True)
-	openacess_expertise_other = models.CharField(max_length=255, blank=True)
+	openacess_expertise_other = models.TextField(blank=True)
 
 	mooc_expertise = models.ManyToManyField(MOOCExpertise, null=True)
-	mooc_expertise_other = models.CharField(max_length=255, blank=True)
+	mooc_expertise_other = models.TextField(blank=True)
 
-	discipline = models.CharField(max_length=255, blank=True)
+	discipline = models.TextField(blank=True)
 
 	region = models.ManyToManyField(Region)
 
@@ -77,3 +77,6 @@ class Person(models.Model):
 
 	pub_date = models.DateTimeField(auto_now_add=True)
 	mod_date = models.DateTimeField(auto_now=True)
+
+	def __str__(self):
+		return u"{0} {1}".format(self.first_name, self.last_name)

@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Address',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('street_address', models.CharField(blank=True, max_length=255)),
                 ('street_address2', models.CharField(blank=True, max_length=255)),
                 ('city', models.CharField(blank=True, max_length=255)),
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='GeneralExpertise',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
             ],
             options={
@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MOOCExpertise',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
             ],
             options={
@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='OERExpertise',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
             ],
             options={
@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='OpenAccessExpertise',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
             ],
             options={
@@ -68,7 +68,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Person',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('first_name', models.CharField(max_length=255)),
                 ('last_name', models.CharField(max_length=255)),
                 ('job_title', models.CharField(blank=True, max_length=255)),
@@ -79,11 +79,11 @@ class Migration(migrations.Migration):
                 ('language_native', models.TextField(blank=True)),
                 ('language_business', models.TextField(blank=True)),
                 ('language_conversational', models.TextField(blank=True)),
-                ('general_expertise_other', models.CharField(blank=True, max_length=255)),
-                ('oer_expertise_other', models.CharField(blank=True, max_length=255)),
-                ('openacess_expertise_other', models.CharField(blank=True, max_length=255)),
-                ('mooc_expertise_other', models.CharField(blank=True, max_length=255)),
-                ('discipline', models.CharField(blank=True, max_length=255)),
+                ('general_expertise_other', models.TextField(blank=True, max_length=255)),
+                ('oer_expertise_other', models.TextField(blank=True)),
+                ('openacess_expertise_other', models.TextField(blank=True)),
+                ('mooc_expertise_other', models.TextField(blank=True)),
+                ('discipline', models.TextField(blank=True)),
                 ('personal_statement', models.TextField(blank=True)),
                 ('external_links', models.TextField(blank=True)),
                 ('pub_date', models.DateTimeField(auto_now_add=True)),
@@ -101,7 +101,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Region',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
             ],
             options={
