@@ -1,6 +1,16 @@
 -e git+https://github.com/django/django.git@b4c80238a2b6c3f9fb7437d216082315c601055b#egg=Django-dev
+argparse==1.2.1
+django-haystack==2.2.0
 django-vanilla-views==1.0.3
+gnureadline==6.3.3
+haystack==0.15
+ipython==2.2.0
+lxml==3.3.5
 psycopg2==2.5.3
+pysolr==3.2.0
 python-dateutil==1.5
 python-magic==0.4.6
+python-ptrace==0.7
+pytz==2014.4
+requests==2.3.0
 xlrd==0.9.3

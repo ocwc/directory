@@ -61,3 +61,6 @@ docs/_build/
 
 # Source content
 raw/
+
+# Solr
+solr/

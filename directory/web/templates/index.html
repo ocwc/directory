@@ -11,14 +11,16 @@
 
 <div class="row collapse-nested">
     <div class="small-6 columns">
-        <div class="row collapse">
+        {# <div class="row collapse"> #}
+            <form action="/directory/search/" method="GET" class="row collapse">
             <div class="small-8 columns">
-                <input type="text" id="right-label" class="radius" placeholder="Search for professionals and disciplines ... ">
+                <input type="text" id="right-label" name="q" class="radius" placeholder="Search for professionals and disciplines ... ">
             </div>
             <div class="small-4 columns">
                 <button class="button postfix radius">Search</button>
             </div>
-        </div>
+            </form>
+        {# </div> #}
     </div>
     <div class="small-6 columns">
         <div class="row collapse">

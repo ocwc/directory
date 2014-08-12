@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<div class="row">
+    <div class="small-12 columns">
+        <h2>Search</h2>
+
+        <form method="get" action=".">
+            <table>
+                <tbody>
+                    {{ form.as_table }}
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><input type="submit" value="Search"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        {% if query %}
+            <!-- Begin faceting. -->
+            <h2>By Author</h2>
+
+            <div>
+                <dl>
+                    {% if facets.fields.region %}
+                        <dt>Author</dt>
+                        {% for region in facets.fields.region %}
+                            <dd><a href="{{ request.get_full_path }}&selected_facets=region_exact:{{ region.0|urlencode }}">{{ region.0 }}</a> ({{ region.1 }})</dd>
+                        {% endfor %}
+                    {% else %}
+                        <p>No region facets.</p>
+                    {% endif %}
+                </dl>
+            </div>
+            <!-- End faceting -->
+
+            <!-- Display results... -->
+            {% for result in results %}
+                <div class="search_result">
+                    <h3><a href="{{ result.object.get_absolute_url }}">{{ result.object.first_name }} {{ result.object.last_name }}</a></h3>
+
+                    <p>{{ result.object.body|truncatewords:80 }}</p>
+                </div>
+            {% empty %}
+                <p>Sorry, no results found.</p>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
