@@ -1,5 +1,37 @@
 {% extends "base.html" %}
 
 {% block contents %}
+<div class="row">
+    <div class="small-12 columns">
+        <h1>The Open Professionals Directory</h1>
+        <p>The purpose of the Open Education Professional Directory is to provide a consolidated list of experienced professionals in open education. As more governments, institutions and organizations around the world turn towards openness as a way to increase access to education, disseminate knowledge, make improvements in teaching and learning, insure transparency and increase collaborations, there is increased need for expertise to advise on policy implementation, project development, business planning and overall program and project management.</p>
+        <p>The Open Education Professional Directory provides a searchable index of experts to help fill this need, and to help professionals find others working in open education.</p>
+    </div>
+</div>
+
+<div class="row collapse-nested">
+    <div class="small-6 columns">
+        <div class="row collapse">
+            <div class="small-8 columns">
+                <input type="text" id="right-label" class="radius" placeholder="Search for professionals and disciplines ... ">
+            </div>
+            <div class="small-4 columns">
+                <button class="button postfix radius">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="small-6 columns">
+        <div class="row collapse">
+            <div class="small-3 columns search-row-buttons right">
+                    <button class="button-blue right-rounded">Login</button>
+            </div>
+            <div class="small-3 columns search-row-buttons right">
+                    <button class="button-green left-rounded">Add Yourself</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock %}

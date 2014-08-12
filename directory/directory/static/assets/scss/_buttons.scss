@@ -1,0 +1,21 @@
+.button-blue {
+  @include button(
+    rem-calc(10),
+    $darkblue,
+    false,	// $radius
+    true,	// We can set $full-width:true to remove side padding extend width. Default:false
+    false,	// We can set $disabled:true to create a disabled transparent button. Default:false
+    true // $is-input - <input>s and <button>s take on strange padding. We added this to help fix that. Default:false
+  );
+}
+
+.button-green {
+  @include button(
+    rem-calc(10),
+    $green,
+    false,	// $radius
+    true,	// We can set $full-width:true to remove side padding extend width. Default:false
+    false,	// We can set $disabled:true to create a disabled transparent button. Default:false
+    true // $is-input - <input>s and <button>s take on strange padding. We added this to help fix that. Default:false
+  );
+}
