@@ -13,10 +13,8 @@
 	border-bottom-right-radius: 3px;
 }
 
-.facets {
-	dl {
-		margin-bottom: 0;
-	}
+.facets, .expertise {
+	dl { margin-bottom: 0; }
 
 	dd { 
 		font-size: rem-calc(14);
@@ -25,8 +23,15 @@
 
 	.selected-false {
 		dd { display: none; }
-		&:hover dd {
-			display: block;
-		}
 	}
+
+}
+
+.expertise {
+	dt { margin-bottom: rem-calc(0); }
+
+}
+
+.region a {
+	margin-bottom: 0;
 }

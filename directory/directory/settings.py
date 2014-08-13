@@ -40,4 +40,6 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 100
+
 from .localsettings import *

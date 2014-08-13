@@ -35,21 +35,42 @@
 <div class="row">
     <div class="small-6 columns expertise">
         <h2>Browse by Expertise</h2>
-        <button class="button-general">General</button>
-        <button class="button-oer">OER</button>
-        <button class="button-openaccess">Open Access</button>
-        <button class="button-mooc">MOOCs</button>
+
+        <dl class="selected-false">
+            <dt class="button-general">General <i class="icon-caret-down"></i></dt>
+            {% for item in general_expertise %}
+                <dd><a href="/directory/search/?selected_facets=general_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+            {% endfor %}
+        </dl>
+
+        <dl class="selected-false">
+            <dt class="button-oer">OER <i class="icon-caret-down"></i></dt>
+            {% for item in oer_expertise %}
+                <dd><a href="/directory/search/?selected_facets=oer_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+            {% endfor %}
+        </dl>
+
+        <dl class="selected-false">
+            <dt class="button-openaccess">Open Access <i class="icon-caret-down"></i></dt>
+            {% for item in openacess_expertise %}
+                <dd><a href="/directory/search/?selected_facets=openacess_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+            {% endfor %}
+        </dl>
+
+        <dl class="selected-false">
+            <dt class="button-mooc">MOOC <i class="icon-caret-down"></i></dt>
+            {% for item in mooc_expertise %}
+                <dd><a href="/directory/search/?selected_facets=mooc_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+            {% endfor %}
+        </dl>
     </div>
 
 
-    <div class="small-5 columns region">
+    <div class="small-5 columns region right">
         <h2>Browse by Region</h2>
-        <button class="button-region-ca">Central America</button>
-        <button class="button-region-na">North America</button>
-        <button class="button-region-sa">South America</button>
-        <button class="button-region-africa">Africa</button>
-        <button class="button-region-asia">Asia</button>
-        <button class="button-region-europe">Europe</button>
+        {% for item in region %}
+            <a href="/directory/search/?selected_facets=region_exact:{{ item.name|urlencode }}" class="button-region-{{ item.name|slugify }}">{{ item.name }}</a>
+        {% endfor %}
     </div>
 </div>
 

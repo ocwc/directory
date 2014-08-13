@@ -43,29 +43,30 @@
   @include button(rem-calc(12), #0B486B, false, true, false, true);
 }
 
-.button-region-ca {
+.button-region-africa {
   @include button(rem-calc(12), #79BD9A, false, true, false, true);
 }
 
-.button-region-na {
+.button-region-asiapacific {
   @include button(rem-calc(12), #00A0B0, false, true, false, true);
 }
 
-.button-region-sa {
+.button-region-central-america {
   @include button(rem-calc(12), #3B8686, false, true, false, true);
 }
 
-.button-region-africa {
+.button-region-europe {
   @include button(rem-calc(12), darken(#3B8686, 5%), false, true, false, true);
 }
 
-.button-region-asia {
+.button-region-north-america {
   @include button(rem-calc(12), darken(#3B8686, 10%), false, true, false, true);
 }
 
-.button-region-europe {
+.button-region-south-america {
   @include button(rem-calc(12), darken(#3B8686, 15%), false, true, false, true);
 }
+
 
 /* facets */
 @mixin button-facet($color){
