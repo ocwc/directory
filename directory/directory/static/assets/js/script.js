@@ -17,5 +17,8 @@ jQuery(document).ready(function($) {
     $('.toggle-menu').click(function(){
         $('.menu').toggle();
     });
-	
+
+    $('.facets dt').click(function(){
+        $(this).parent('dl').toggleClass('selected-false');
+    });
 });

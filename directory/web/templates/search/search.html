@@ -1,39 +1,45 @@
 {% extends 'base.html' %}{% load faceting %}
 
 {% block contents %}
+
 <div class="main-wrapper">
+    <div class="row">
+        <div class="small-12 columns">
+            <h3><a href="/directory/">The Open Professionals Directory</a></h3>
+        </div>
+    </div>
+
     <div class="row">
         <div class="small-12 medium-4 columns">
             <div class="facets">
-                <dl>
-                    <dt>Region</dt>
-                    {% show_facets facets 'region' %}
-                </dl>
-
-                <dl>
-                    <dt>General Expertise</dt>
+                <dl class="selected-{% is_facet_selected 'general_expertise' %}" >
+                    <dt class="button-facet-general">General Expertise <i class="icon-caret-down"></i></dt>
                     {% show_facets facets 'general_expertise' %}
                 </dl>
 
-                <dl>
-                    <dt>OER Expertise</dt>
+                <dl class="selected-{% is_facet_selected 'oer_expertise' %}" >
+                    <dt class="button-facet-oer">OER Expertise</dt>
                     {% show_facets facets 'oer_expertise' %}
                 </dl>
 
-                <dl>
-                    <dt>Open Access Expertise</dt>
+                <dl class="selected-{% is_facet_selected 'openacess_expertise' %}" >
+                    <dt class="button-facet-openaccess">Open Access Expertise <i class="icon-caret-down"></i></dt>
                     {% show_facets facets 'openacess_expertise' %}
                 </dl>
 
-                <dl>
-                    <dt>MOOC Expertise</dt>
+                <dl class="selected-{% is_facet_selected 'mooc_expertise' %}" >
+                    <dt class="button-facet-mooc">MOOC Expertise <i class="icon-caret-down"></i></dt>
                     {% show_facets facets 'mooc_expertise' %}                
+                </dl>
+
+                <dl class="selected-{% is_facet_selected 'region' %}" >
+                    <dt class="button-facet-region">Region <i class="icon-caret-down"></i></dt>
+                    {% show_facets facets 'region' %}
                 </dl>
             </div>
         </div>
 
         <div class="small-12 medium-8 columns">
-            <h2>Search</h2>
             <form method="get" action="/directory/search/" class="row collapse">
                 <div class="small-8 columns">
                     {{ form.q }}

@@ -45,8 +45,8 @@ module.exports = function (grunt) {
       },
 
       sass: {
-        files: ['assets/scss/*.scss', 'Gruntfile.js'],
-        tasks: ['sass', 'pixrem']
+        files: ['assets/scss/*.scss', 'assets/js/*.js', 'Gruntfile.js'],
+        tasks: ['build']
       }
     }
 

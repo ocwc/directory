@@ -43,7 +43,6 @@
   @include button(rem-calc(12), #0B486B, false, true, false, true);
 }
 
-
 .button-region-ca {
   @include button(rem-calc(12), #79BD9A, false, true, false, true);
 }
@@ -66,4 +65,36 @@
 
 .button-region-europe {
   @include button(rem-calc(12), darken(#3B8686, 15%), false, true, false, true);
+}
+
+/* facets */
+@mixin button-facet($color){
+  @include button(rem-calc(12), $color, false, true, false, true);
+  
+  padding-bottom: rem-calc(10);
+  font-size: rem-calc(14);
+  margin-bottom: rem-calc(8);
+
+  text-align: left;
+  padding-left: rem-calc(16);
+}
+
+.button-facet-general {
+  @include button-facet(#79BD9A);
+}
+
+.button-facet-oer {
+  @include button-facet(#00A0B0);
+}
+
+.button-facet-openaccess {
+  @include button-facet(#3B8686);
+}
+
+.button-facet-mooc {
+  @include button-facet(#0B486B);
+}
+
+.button-facet-region {
+  @include button-facet(darken(#3B8686, 15%));
 }

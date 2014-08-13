@@ -2,3 +2,19 @@
 {{ object.last_name }}
 {{ object.job_title }}
 {{ object.institution }}
+
+{{ object.language_native }}
+{{ object.language_business }}
+{{ object.language_conversational }}
+{{ object.general_expertise.all|join:" " }}
+{{ object.general_expertise_other }}
+{{ object.oer_expertise.all|join:" " }}
+{{ object.oer_expertise_other }}
+{{ object.openacess_expertise.all|join:" " }}
+{{ object.openacess_expertise_other }}
+{{ object.mooc_expertise.all|join:" " }}
+{{ object.mooc_expertise_other }}
+{{ object.discipline }}
+{{ object.region.all|join:" " }}
+{{ object.personal_statement }}
+{{ object.external_links }}
