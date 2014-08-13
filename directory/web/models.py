@@ -44,6 +44,9 @@ class Address(models.Model):
 class Person(models.Model):
 	first_name = models.CharField(max_length=255)
 	last_name = models.CharField(max_length=255)
+
+	slug = models.SlugField(max_length=255)
+
 	job_title = models.CharField(max_length=255, blank=True)
 	institution = models.CharField(max_length=255, blank=True)
 	is_member = models.NullBooleanField(default=None)

@@ -3,6 +3,7 @@ from optparse import make_option
 # from pprint import pprint as print
 
 from django.core.management.base import BaseCommand
+from django.utils.text import slugify
 
 from web.models import Person, Address, GeneralExpertise, OERExpertise, OpenAccessExpertise, MOOCExpertise, Region
 
@@ -42,11 +43,16 @@ class Command(BaseCommand):
                 country = row[10].value         # 10 - Address (Country)
             )
 
+            first_name = row[0].value
+            last_name = row[1].value
+            slug = slugify("{0} {1}".format(first_name, last_name))
+
             person, is_created = Person.objects.get_or_create(
                     email = row[11].value,       # 11 - Email
+                    slug = slug,
                     defaults = dict(
-                        first_name = row[0].value,   #  0 - Name (First)
-                        last_name = row[1].value,    #  1 - Name (Last)
+                        first_name = first_name,   #  0 - Name (First)
+                        last_name = last_name,    #  1 - Name (Last)
                         job_title = row[2].value,    #  2 - Job Title
                         institution = row[3].value,  #  3 - Institution
 
@@ -88,7 +94,7 @@ class Command(BaseCommand):
                         person.general_expertise.add(expertise)
                     except GeneralExpertise.DoesNotExist:
                         pass
-            person.oer_expertise_other = row[26].value
+            person.general_expertise_other = row[26].value
 
             # 27 - Authoring OER
             # 28 - Using/remixing OER for face to face education
