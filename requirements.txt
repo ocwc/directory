@@ -1,6 +1,6 @@
 -e git+https://github.com/django/django.git@b4c80238a2b6c3f9fb7437d216082315c601055b#egg=Django-dev
 argparse==1.2.1
--e git+https://github.com/gandalfar/django-email-obfuscator.git@5c21604ee9faee33d39fdc210f2f92cebe8ebbdd#egg=django_email_obfuscator-master
+-e git+https://github.com/gandalfar/django-email-obfuscator.git@5c21604ee9faee33d39fdc210f2f92cebe8ebbdd#egg=django_email_obfuscator-origin/HEAD
 django-haystack==2.2.0
 django-vanilla-views==1.0.3
 gnureadline==6.3.3
@@ -14,4 +14,5 @@ python-magic==0.4.6
 python-ptrace==0.7
 pytz==2014.4
 requests==2.3.0
+waitress==0.8.9
 xlrd==0.9.3
