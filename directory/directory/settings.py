@@ -2,7 +2,7 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.oeconsortium.org']
 
 INSTALLED_APPS = (
     'django.contrib.admin',
