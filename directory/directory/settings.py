@@ -2,6 +2,12 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+ADMINS = (
+    ('Jure Cuhalev', 'jure@oeconsortium.org'),
+)
+
+MANAGERS = ADMINS
+
 ALLOWED_HOSTS = ['www.oeconsortium.org']
 
 INSTALLED_APPS = (
