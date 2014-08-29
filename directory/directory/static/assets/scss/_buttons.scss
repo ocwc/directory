@@ -53,13 +53,7 @@
 /* facets */
 @mixin button-facet($color){
   @include button-variant(#FFFFFF, $color, transparent);
-  
-  // padding-bottom: rem-calc(10);
-  // font-size: rem-calc(14);
-  // margin-bottom: rem-calc(8);
-
-  // text-align: left;
-  // padding-left: rem-calc(16);
+  margin-bottom: 8px;
 }
 
 .btn-facet-general {
@@ -80,4 +74,9 @@
 
 .btn-facet-region {
   @include button-facet(darken(#3B8686, 15%));
+}
+
+.btn-facet {
+  white-space: normal;
+  margin-top: -1px !important;
 }

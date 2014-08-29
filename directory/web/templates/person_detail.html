@@ -1,135 +1,135 @@
 {% extends "base.html" %}{% load email_obfuscator %}
 
 {% block contents %}
-<div class="main-wrapper">
-    <div class="row">
-    	<div class="small-12 columns">
-	    	<h3><a href="/directory">The Open Professionals Directory</a></h3>
-	    	<h1>{{ person.first_name }} {{ person.last_name }}{% if person.job_title %}, {{ person.job_title }}{% endif %}</h1>
-	    </div>
 
-	    <div class="small-12 medium-6 columns">
-	    	<h4>General</h4>
+<div class="col-sm-12">
+	<h3><a href="/directory">The Open Professionals Directory</a></h3>
+	<h1>{{ person.first_name }} {{ person.last_name }}{% if person.job_title %}, {{ person.job_title }}{% endif %}</h1>
+</div>
 
+<div class="col-sm-6">
+	<h4>General</h4>
+
+	<dl>
+		<dt>Institution</dt>
+		<dd>{{ person.institution }}</dd>
+	</dl>
+	{% if person.address.country %}
+	<dl>
+		<dt>Location</dt>
+		<dd>
+			{% if person.address.city %}{{ person.address.city }}, {% endif %}
+			{% if person.state_province %}{{ person.state_province }}, {% endif %}
+			{{ person.address.country }}
+		</dd>
+	</dl>
+	{% endif %}
+
+	<dl>
+		<dt>Contact</dt>
+		<dd>{{ person.email|obfuscate }}</dd>
+	</dl>
+</div>
+
+{% if person.language_native or person.language_business or person.language_conversational %}
+    <div class="col-sm-6">
+    	<h4>Languages</h4>
+    	{% if person.language_native %}
 	    	<dl>
-	    		<dt>Institution</dt>
-	    		<dd>{{ person.institution }}</dd>
+	    		<dt>Native/near native level proficiency</dt>
+	    		<dd>{{ person.language_native }}</dd>
 	    	</dl>
-	    	{% if person.address.country %}
+    	{% endif %}
+    	{% if person.language_business %}
 	    	<dl>
-	    		<dt>Location</dt>
-	    		<dd>
-	    			{% if person.address.city %}{{ person.address.city }}, {% endif %}
-	    			{% if person.state_province %}{{ person.state_province }}, {% endif %}
-	    			{{ person.address.country }}
-	    		</dd>
+	    		<dt>Business level proficiency</dt>
+	    		<dd>{{ person.language_business }}</dd>
 	    	</dl>
-	    	{% endif %}
-
-	    	<dl>
-	    		<dt>Contact</dt>
-	    		<dd>{{ person.email|obfuscate }}</dd>
-	    	</dl>
-	    </div>
-
-	    {% if person.language_native or person.language_business or person.language_conversational %}
-		    <div class="small-12 medium-6 columns">
-		    	<h4>Languages</h4>
-		    	{% if person.language_native %}
-			    	<dl>
-			    		<dt>Native/near native level proficiency</dt>
-			    		<dd>{{ person.language_native }}</dd>
-			    	</dl>
-		    	{% endif %}
-		    	{% if person.language_business %}
-			    	<dl>
-			    		<dt>Business level proficiency</dt>
-			    		<dd>{{ person.language_business }}</dd>
-			    	</dl>
-			    {% endif %}
-			    {% if person.language_conversational %}
-			    	<dl>
-			    		<dt>Conversational level proficiency</dt>
-			    		<dd>{{ person.language_conversational }}</dd>
-			    	</dl>
-			    {% endif %}
-		    </div>
 	    {% endif %}
+	    {% if person.language_conversational %}
+	    	<dl>
+	    		<dt>Conversational level proficiency</dt>
+	    		<dd>{{ person.language_conversational }}</dd>
+	    	</dl>
+	    {% endif %}
+    </div>
+{% endif %}
 
-	    <div class="small-12 columns">
-	    	<h3>Areas of expertise</h3>
-	    </div>
-	    <div class="row">
-		    <div class="small-12 columns">
-		    	{% if person.general_expertise.count or person.general_expertise_other %}
-			    	<dl class="small-12 medium-6 columns left">
-			    		<dt>Open Education - General</dt>
-			    		{{ person.general_expertise.all|join:"<br />" }}
-			    		{% if person.general_expertise_other %}
-			    			<br /><i class="icon-lightbulb"></i> {{ person.general_expertise_other }}
-			    		{% endif %}
-			    	</dl>
-			    {% endif %}
-		    	{% if person.oer_expertise.count or person.oer_expertise_other %}
-			    	<dl class="small-12 medium-6 columns left">
-			    		<dt>Open Educational Resources</dt>
-			    		{{ person.oer_expertise.all|join:"<br />" }}
-			    		{% if person.oer_expertise_other %}
-			    			<br /><i class="icon-lightbulb"></i> {{ person.oer_expertise_other }}
-			    		{% endif %}
-			    	</dl>
-			    {% endif %}
-			    {% if person.openacess_expertise.count or person.openacess_expertise_other %}
-			    	<dl class="small-12 medium-6 columns left">
-			    		<dt>Open Access</dt>
-			    		{{ person.openacess_expertise.all|join:"<br />" }}
-			    		{% if person.openacess_expertise_other %}
-			    			<br /><i class="icon-lightbulb"></i> {{ person.openacess_expertise_other }}
-			    		{% endif %}
-			    	</dl>
-			    {% endif %}
-			    {% if person.mooc_expertise.count or person.mooc_expertise_other %}
-			    	<dl class="small-12 medium-6 columns left">
-			    		<dt>MOOC</dt>
-			    		{{ person.mooc_expertise.all|join:"<br />" }}
-			    		{% if person.mooc_expertise_other %}
-			    			<br /><i class="icon-lightbulb"></i> {{ person.mooc_expertise_other }}
-			    		{% endif %}
-			    	</dl>
-			    {% endif %}
-			    {% if person.discipline %}
-			    	<dl class="small-12 medium-6 columns left">
-			    		<dt>Expertise in a particular discipline</dt>
-			    		{{ person.discipline }}
-			    	</dl>
-			    {% endif %}
-			    {% if person.region.count %}
-		    		<dl class="small-12 medium-6 columns left">
-		    			<dt>Geographic regions of professional expertise</dt>
-		    			{{ person.region.all|join:"<br/>" }}
-		    		</dl>
-			    {% endif %}
-		    </div>
-		</div>
-	    <div class="small-12 columns">
-	    	<h3>Profile</h3>
-	    </div>
-	    {% if person.personal_statement %}
-		    <div class="small-12 medium-6 columns left">
-		    	<dl>
-		    		<dt>Personal statement</dt>
-		    		{{ person.personal_statement|linebreaks }}
-		    	</dl>
-		    </div>
-		{% endif %}
-		{% if person.external_links %}
-		    <div class="small-12 medium-6 columns left">
-		    	<dl>
-		    		<dt>External links</dt>
-		    		{{ person.external_links|linebreaks }}
-		    	</dl>
-		    </div>
-		{% endif %}
+<div class="col-sm-12">
+	<h3>Areas of expertise</h3>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+    	{% if person.general_expertise.count or person.general_expertise_other %}
+	    	<dl class="col-sm-12 pull-left">
+	    		<dt>Open Education - General</dt>
+	    		{{ person.general_expertise.all|join:"<br />" }}
+	    		{% if person.general_expertise_other %}
+	    			<br /><i class="icon-lightbulb"></i> {{ person.general_expertise_other }}
+	    		{% endif %}
+	    	</dl>
+	    {% endif %}
+    	{% if person.oer_expertise.count or person.oer_expertise_other %}
+	    	<dl class="col-sm-6 pull-left">
+	    		<dt>Open Educational Resources</dt>
+	    		{{ person.oer_expertise.all|join:"<br />" }}
+	    		{% if person.oer_expertise_other %}
+	    			<br /><i class="icon-lightbulb"></i> {{ person.oer_expertise_other }}
+	    		{% endif %}
+	    	</dl>
+	    {% endif %}
+	    {% if person.openacess_expertise.count or person.openacess_expertise_other %}
+	    	<dl class="col-sm-6 pull-left">
+	    		<dt>Open Access</dt>
+	    		{{ person.openacess_expertise.all|join:"<br />" }}
+	    		{% if person.openacess_expertise_other %}
+	    			<br /><i class="icon-lightbulb"></i> {{ person.openacess_expertise_other }}
+	    		{% endif %}
+	    	</dl>
+	    {% endif %}
+	    {% if person.mooc_expertise.count or person.mooc_expertise_other %}
+	    	<dl class="col-sm-6 pull-left">
+	    		<dt>MOOC</dt>
+	    		{{ person.mooc_expertise.all|join:"<br />" }}
+	    		{% if person.mooc_expertise_other %}
+	    			<br /><i class="icon-lightbulb"></i> {{ person.mooc_expertise_other }}
+	    		{% endif %}
+	    	</dl>
+	    {% endif %}
+	    {% if person.discipline %}
+	    	<dl class="col-sm-6 pull-left">
+	    		<dt>Expertise in a particular discipline</dt>
+	    		{{ person.discipline }}
+	    	</dl>
+	    {% endif %}
+	    {% if person.region.count %}
+    		<dl class="col-sm-6 pull-left">
+    			<dt>Geographic regions of professional expertise</dt>
+    			{{ person.region.all|join:"<br/>" }}
+    		</dl>
+	    {% endif %}
     </div>
 </div>
+
+<div class="col-sm-12">
+	<h3>Profile</h3>
+</div>
+{% if person.personal_statement %}
+    <div class="col-sm-6 pull-left">
+    	<dl>
+    		<dt>Personal statement</dt>
+    		{{ person.personal_statement|linebreaks }}
+    	</dl>
+    </div>
+{% endif %}
+{% if person.external_links %}
+    <div class="col-sm-6 pull-left">
+    	<dl>
+    		<dt>External links</dt>
+    		{{ person.external_links|linebreaks }}
+    	</dl>
+    </div>
+{% endif %}
+
 {% endblock %}

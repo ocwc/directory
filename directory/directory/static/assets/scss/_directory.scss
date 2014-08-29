@@ -7,8 +7,8 @@
 .no-padding-right { padding-right: 0; }
 
 .search-row-buttons button {
-	padding-bottom: rem-calc(10);
-	font-size: rem-calc(14);
+	padding-bottom: 10px;
+	font-size: 14px;
 }
 
 .left-rounded {
@@ -20,11 +20,11 @@
 }
 
 .facets, .expertise {
-	dl { margin-bottom: 0; }
+	dl { margin-bottom: 5px; }
 
 	dd { 
-		font-size: rem-calc(14);
-		padding-left: rem-calc(16);
+		font-size: 14px;
+		padding-left: 16px;
 	}
 
 	.selected-false {
@@ -34,7 +34,7 @@
 }
 
 .expertise {
-	dt { margin-bottom: rem-calc(0); }
+	dt { margin-bottom: 0; }
 
 }
 
