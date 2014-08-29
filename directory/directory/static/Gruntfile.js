@@ -6,35 +6,25 @@ module.exports = function (grunt) {
       build: {
         files: {
           'build/js/script.min.js': [
-            'bower_components/jquery-legacy/dist/jquery.min.js',
             'assets/js/script.js',
           ]
         }
       }
     },
+
+    jshint: {
+      'all': ['assets/js/script.js']
+    },
     
     sass: {
-      options: {
-        includePaths: ['bower_components/foundation/scss']
-      },
       dist: {
         options: {
-          outputStyle: 'compressed'
+          style: 'compressed',
+          loadPath: ['bower_components/bootstrap-sass-official/assets/stylesheets/']
         },
         files: {
-          'build/css/app.css': 'assets/scss/app.scss',
-          'build/css/ie8.css': 'assets/scss/ie8.scss',
+          'build/css/directory.css': 'assets/scss/bootstrap.scss',
         }
-      }
-    },
-
-    pixrem: {
-      options: {
-        rootvalue: '14px'
-      },
-      dist: {
-        src: 'build/css/app.css',
-        dest: 'build/css/app.css'
       }
     },
 
@@ -52,11 +42,11 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-pixrem');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  grunt.registerTask('build', ['sass', 'pixrem', 'uglify']);
+  grunt.registerTask('build', ['sass', 'jshint', 'uglify']);
   grunt.registerTask('default', ['build','watch']);
 };

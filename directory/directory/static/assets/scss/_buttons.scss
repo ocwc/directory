@@ -1,25 +1,3 @@
-.button-blue {
-  @include button(
-    rem-calc(10),
-    $darkblue,
-    false,	// $radius
-    true,	// We can set $full-width:true to remove side padding extend width. Default:false
-    false,	// We can set $disabled:true to create a disabled transparent button. Default:false
-    true // $is-input - <input>s and <button>s take on strange padding. We added this to help fix that. Default:false
-  );
-}
-
-.button-green {
-  @include button(
-    rem-calc(10),
-    $green,
-    false,	// $radius
-    true,	// We can set $full-width:true to remove side padding extend width. Default:false
-    false,	// We can set $disabled:true to create a disabled transparent button. Default:false
-    true // $is-input - <input>s and <button>s take on strange padding. We added this to help fix that. Default:false
-  );
-}
-
 /* Expertise buttons */
 
 .expertise button, .region button {
@@ -27,75 +5,77 @@
   color: #FFFFFF;
 }
 
-.button-general {
-  @include button(rem-calc(12), #79BD9A, false, true, false, true);
+.btn-general {
+  @include button-variant(#FFFFFF, #79BD9A, transparent);
+
+  // @include button(rem-calc(12), , false, true, false, true);
 }
 
-.button-oer {
-  @include button(rem-calc(12), #00A0B0, false, true, false, true);
-}
+// .button-oer {
+//   @include button(rem-calc(12), #00A0B0, false, true, false, true);
+// }
 
-.button-openaccess {
-  @include button(rem-calc(12), #3B8686, false, true, false, true);
-}
+// .button-openaccess {
+//   @include button(rem-calc(12), #3B8686, false, true, false, true);
+// }
 
-.button-mooc {
-  @include button(rem-calc(12), #0B486B, false, true, false, true);
-}
+// .button-mooc {
+//   @include button(rem-calc(12), #0B486B, false, true, false, true);
+// }
 
-.button-region-africa {
-  @include button(rem-calc(12), #79BD9A, false, true, false, true);
-}
+// .button-region-africa {
+//   @include button(rem-calc(12), #79BD9A, false, true, false, true);
+// }
 
-.button-region-asiapacific {
-  @include button(rem-calc(12), #00A0B0, false, true, false, true);
-}
+// .button-region-asiapacific {
+//   @include button(rem-calc(12), #00A0B0, false, true, false, true);
+// }
 
-.button-region-central-america {
-  @include button(rem-calc(12), #3B8686, false, true, false, true);
-}
+// .button-region-central-america {
+//   @include button(rem-calc(12), #3B8686, false, true, false, true);
+// }
 
-.button-region-europe {
-  @include button(rem-calc(12), darken(#3B8686, 5%), false, true, false, true);
-}
+// .button-region-europe {
+//   @include button(rem-calc(12), darken(#3B8686, 5%), false, true, false, true);
+// }
 
-.button-region-north-america {
-  @include button(rem-calc(12), darken(#3B8686, 10%), false, true, false, true);
-}
+// .button-region-north-america {
+//   @include button(rem-calc(12), darken(#3B8686, 10%), false, true, false, true);
+// }
 
-.button-region-south-america {
-  @include button(rem-calc(12), darken(#3B8686, 15%), false, true, false, true);
-}
+// .button-region-south-america {
+//   @include button(rem-calc(12), darken(#3B8686, 15%), false, true, false, true);
+// }
 
 
-/* facets */
-@mixin button-facet($color){
-  @include button(rem-calc(12), $color, false, true, false, true);
+// /* facets */
+// @mixin button-facet($color){
+//   @include button(rem-calc(12), $color, false, true, false, true);
   
-  padding-bottom: rem-calc(10);
-  font-size: rem-calc(14);
-  margin-bottom: rem-calc(8);
+//   padding-bottom: rem-calc(10);
+//   font-size: rem-calc(14);
+//   margin-bottom: rem-calc(8);
 
-  text-align: left;
-  padding-left: rem-calc(16);
-}
+//   text-align: left;
+//   padding-left: rem-calc(16);
+// }
 
-.button-facet-general {
-  @include button-facet(#79BD9A);
-}
+// .button-facet-general {
+//   @include button-facet(#79BD9A);
+// }
 
-.button-facet-oer {
-  @include button-facet(#00A0B0);
-}
+// .button-facet-oer {
+//   @include button-facet(#00A0B0);
+// }
 
-.button-facet-openaccess {
-  @include button-facet(#3B8686);
-}
+// .button-facet-openaccess {
+//   @include button-facet(#3B8686);
+// }
 
-.button-facet-mooc {
-  @include button-facet(#0B486B);
-}
+// .button-facet-mooc {
+//   @include button-facet(#0B486B);
+// }
 
-.button-facet-region {
-  @include button-facet(darken(#3B8686, 15%));
-}
+// .button-facet-region {
+//   @include button-facet(darken(#3B8686, 15%));
+// }

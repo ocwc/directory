@@ -2,12 +2,7 @@
   "name": "ocw-mainsite",
   "version": "1.0.0",
   "dependencies": {
-    "foundation": "~5.3.0",
-    "bourbon": "~3.1.8",
-    "html5shiv": "~3.7.2",
-    "respond": "~1.4.2",
-    "selectivizr": "~1.0.2",
-    "jquery-legacy": "jquery#1.11.1"
+    "bootstrap-sass-official": "~3.2.0"
   },
   "homepage": "https://github.com/ocwc/ocwc-mainsite",
   "authors": [
