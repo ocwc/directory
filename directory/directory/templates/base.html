@@ -10,8 +10,17 @@
 
 	<link rel="stylesheet" href="http://www.oeconsortium.org/wp-content/themes/ocwc-mainsite/css/style.css?ver=3.9.2">
 	<link rel="stylesheet" href="{% static "build/css/directory.css" %}">
+
+	<script type='text/javascript' src='http://www.oeconsortium.org/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+	<script type='text/javascript' src='http://www.oeconsortium.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
 	
 	{% if debug %}<script src="http://localhost:35729/livereload.js"></script>{% endif %}
+
+  	<!--[if lte IE 8]>
+  		<script src="http://www.oeconsortium.org/wp-content/themes/ocwc-mainsite/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+  		<script src="http://www.oeconsortium.org/wp-content/themes/ocwc-mainsite/bower_components/selectivizr/selectivizr.js"></script>
+  		<script src="http://www.oeconsortium.org/wp-content/themes/ocwc-mainsite/bower_components/respond/dest/respond.min.js"></script>
+	<![endif]-->
 </head>
 
 <body>
@@ -23,6 +32,7 @@
 
 	{% cri http://www.oeconsortium.org/api-footer/ 7200 %}
 
+	<script type='text/javascript' src='http://www.oeconsortium.org/wp-content/themes/ocwc-mainsite/js/script.min.js?ver=20140815'></script>
 	<script type="text/javascript" src="{% static "build/js/script.min.js" %}"></script>	
 </body>
 </html>

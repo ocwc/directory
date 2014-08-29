@@ -1,16 +1,22 @@
+.no-padding {
+	padding-left: 0;
+	padding-right: 0;	
+}
+
+.no-padding-left { padding-left: 0; }
+.no-padding-right { padding-right: 0; }
+
 .search-row-buttons button {
 	padding-bottom: rem-calc(10);
 	font-size: rem-calc(14);
 }
 
 .left-rounded {
-	border-top-left-radius: 3px;
-	border-bottom-left-radius: 3px;
+	border-radius: 3px 0 0 3px;
 }
 
 .right-rounded {
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
+	border-radius: 0 3px 3px 0;
 }
 
 .facets, .expertise {

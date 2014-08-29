@@ -2,7 +2,7 @@
 
 {% block contents %}
 <div class="container">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
         <h1>The Open Professionals Directory</h1>
         <p>The purpose of the Open Education Professional Directory is to provide a consolidated list of experienced professionals in open education. As more governments, institutions and organizations around the world turn towards openness as a way to increase access to education, disseminate knowledge, make improvements in teaching and learning, insure transparency and increase collaborations, there is increased need for expertise to advise on policy implementation, project development, business planning and overall program and project management.</p>
         <p>The Open Education Professional Directory provides a searchable index of experts to help fill this need, and to help professionals find others working in open education.</p>
@@ -11,56 +11,56 @@
 
 <div class="container">
     <div class="col-sm-6">
-        <form action="/directory/search/" method="GET" class="row collapse">
-        <div class="small-8 columns">
-            <input type="text" id="right-label" name="q" class="radius" placeholder="Search for professionals and disciplines ... ">
-        </div>
-        <div class="small-4 columns">
-            <button class="button postfix radius">Search</button>
-        </div>
+        <form action="/directory/search/" method="GET" class="form-horizontal" role="form">
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <input type="text" id="right-label" name="q" class="form-control left-rounded" placeholder="Search for professionals and disciplines ... ">
+                </div>
+            </div>
+            <div class="col-sm-4 no-padding">
+                <button class="btn btn-block btn-primary right-rounded">Search</button>
+            </div>
         </form>
     </div>
-    <div class="small-6 columns">
-        <div class="row collapse">
-            <div class="small-3 columns search-row-buttons right">
-                    <button class="button-blue right-rounded">Login</button>
-            </div>
-            <div class="small-3 columns search-row-buttons right">
-                    <button class="button-green left-rounded">Add Yourself</button>
-            </div>
+    <div class="col-sm-6">
+        <div class="col-sm-3 search-row-buttons pull-right no-padding">
+                <button class="btn btn-primary btn-block right-rounded">Login</button>
+        </div>
+        <div class="col-sm-4 search-row-buttons pull-right no-padding-right">
+                <button class="btn btn-success btn-block left-rounded">Add Yourself</button>
         </div>
     </div>
 </div>
 
-<div class="row">
+<div class="container">
     <div class="col-sm-6 expertise">
         <h2>Browse by Expertise</h2>
 
         <dl class="selected-false">
             <dt class="btn btn-block btn-square btn-general">General <i class="icon-caret-down"></i></dt>
             {% for item in general_expertise %}
-                <dd><a href="/directory/search/?selected_facets=general_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+                <dd class="btn btn-block btn-default btn-square"><a href="/directory/search/?selected_facets=general_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
             {% endfor %}
         </dl>
 
         <dl class="selected-false">
-            <dt class="button-oer">OER <i class="icon-caret-down"></i></dt>
+            <dt class="btn btn-block btn-square btn-oer">OER <i class="icon-caret-down"></i></dt>
             {% for item in oer_expertise %}
-                <dd><a href="/directory/search/?selected_facets=oer_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+                <dd class="btn btn-block btn-default btn-square"><a href="/directory/search/?selected_facets=oer_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
             {% endfor %}
         </dl>
 
         <dl class="selected-false">
-            <dt class="button-openaccess">Open Access <i class="icon-caret-down"></i></dt>
+            <dt class="btn btn-block btn-square btn-openaccess">Open Access <i class="icon-caret-down"></i></dt>
             {% for item in openacess_expertise %}
-                <dd><a href="/directory/search/?selected_facets=openacess_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+                <dd class="btn btn-block btn-default btn-square"><a href="/directory/search/?selected_facets=openacess_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
             {% endfor %}
         </dl>
 
         <dl class="selected-false">
-            <dt class="button-mooc">MOOC <i class="icon-caret-down"></i></dt>
+            <dt class="btn btn-block btn-square btn-mooc">MOOC <i class="icon-caret-down"></i></dt>
             {% for item in mooc_expertise %}
-                <dd><a href="/directory/search/?selected_facets=mooc_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+                <dd class="btn btn-block btn-default btn-square"><a href="/directory/search/?selected_facets=mooc_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
             {% endfor %}
         </dl>
     </div>
@@ -69,7 +69,7 @@
     <div class="col-sm-5 region pull-right">
         <h2>Browse by Region</h2>
         {% for item in region %}
-            <a href="/directory/search/?selected_facets=region_exact:{{ item.name|urlencode }}" class="button-region-{{ item.name|slugify }}">{{ item.name }}</a>
+            <a href="/directory/search/?selected_facets=region_exact:{{ item.name|urlencode }}" class="btn btn-block btn-square btn-region-{{ item.name|slugify }}">{{ item.name }}</a>
         {% endfor %}
     </div>
 </div>
