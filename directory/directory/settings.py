@@ -18,6 +18,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'crispy_forms',
     'haystack',
     'email_obfuscator',
 
@@ -47,5 +48,7 @@ USE_TZ = False
 STATIC_URL = '/static/'
 
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 100
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 from .localsettings import *

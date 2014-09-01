@@ -49,31 +49,35 @@ class Person(models.Model):
 
 	job_title = models.CharField(max_length=255, blank=True)
 	institution = models.CharField(max_length=255, blank=True)
-	is_member = models.NullBooleanField(default=None)
+	is_member = models.NullBooleanField(default=None,
+										verbose_name=u'Open Education Consortium member?')
 	address = models.ForeignKey(Address, null=True)
 
 	email = models.CharField(max_length=255)
 	alternative_contact = models.CharField(max_length=255, blank=True)
 
-	language_native = models.TextField(blank=True)
-	language_business = models.TextField(blank=True)
-	language_conversational = models.TextField(blank=True)
+	language_native = models.TextField(blank=True, verbose_name=u'Native/near native level')
+	language_business = models.TextField(blank=True, verbose_name=u'Business level')
+	language_conversational = models.TextField(blank=True, verbose_name=u'Conversational')
 
-	general_expertise = models.ManyToManyField(GeneralExpertise, null=True)
-	general_expertise_other = models.TextField(max_length=255, blank=True)
+	general_expertise = models.ManyToManyField(GeneralExpertise, null=True, verbose_name=u'Open Education - General')
+	general_expertise_other = models.TextField(max_length=255, blank=True, verbose_name=u'Other, please indicate')
 
-	oer_expertise = models.ManyToManyField(OERExpertise, null=True)
-	oer_expertise_other = models.TextField(blank=True)
+	oer_expertise = models.ManyToManyField(OERExpertise, null=True, verbose_name=u'Open Educational Resources')
+	oer_expertise_other = models.TextField(blank=True, verbose_name=u'Other, please indicate:')
 
-	openacess_expertise = models.ManyToManyField(OpenAccessExpertise, null=True)
-	openacess_expertise_other = models.TextField(blank=True)
+	openacess_expertise = models.ManyToManyField(OpenAccessExpertise, null=True, verbose_name=u'MOOCs')
+	openacess_expertise_other = models.TextField(blank=True, verbose_name=u'Other, please indicate:')
 
-	mooc_expertise = models.ManyToManyField(MOOCExpertise, null=True)
+	mooc_expertise = models.ManyToManyField(MOOCExpertise, null=True, 
+		verbose_name=u'If you have expertise with open education in a particular discipline, please indicate:')
 	mooc_expertise_other = models.TextField(blank=True)
 
-	discipline = models.TextField(blank=True)
+	discipline = models.TextField(blank=True, 
+		verbose_name=u'If you have expertise with open education in a particular discipline, please indicate:')
 
-	region = models.ManyToManyField(Region)
+	region = models.ManyToManyField(Region, 
+		verbose_name=u'Please select the geographic regions in which you have professional experience:*')
 
 	personal_statement = models.TextField(blank=True)
 	external_links = models.TextField(blank=True)

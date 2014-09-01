@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% load crispy_forms_tags %}
+
+{% block contents %}
+<div class="col-sm-10">
+	<h1>Add yourself to The Open Professionals Directory</h1>
+
+	<p>If you would like to be added to the Directory, please complete the form below. The Directory is intended to give a quick overview of your expertise. </p>
+	
+	<p><strong>Please note that all information you add to the form will be publicly available.</strong></p>
+
+	<p>All entries will be reviewed to prevent duplicates or spam. You will receive a login to update or modify your profile once complete. If you have any questions about the Open Education Professional Directory, please contact us at <a href="mailto:directory@oeconsortium.org">directory@oeconsortium.org</a></p>
+</div>
+
+<div class="col-sm-10 directory_form">
+	{% crispy form form.helper %}
+</div>
+
+{% endblock %}

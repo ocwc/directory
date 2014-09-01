@@ -1,8 +1,9 @@
-from vanilla import TemplateView, DetailView
+from vanilla import TemplateView, DetailView, CreateView
 
 from haystack.forms import FacetedSearchForm
 
 from web.models import Person, GeneralExpertise, OERExpertise, OpenAccessExpertise, MOOCExpertise, Region
+from web.forms import PersonCreateForm
 
 class IndexView(TemplateView):
     template_name = "index.html"
@@ -26,3 +27,7 @@ class PersonDetailView(DetailView):
     template_name = "person_detail.html"
     lookup_field = 'slug'
     context_object_name = 'person'
+
+class PersonCreateView(CreateView):
+    model = Person
+    form_class = PersonCreateForm
