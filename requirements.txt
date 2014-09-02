@@ -2,10 +2,10 @@ Django==1.7c3
 argparse==1.2.1
 django-braces==1.4.0
 django-crispy-forms==1.4.0
--e git+https://github.com/gandalfar/django-email-obfuscator.git@5c21604ee9faee33d39fdc210f2f92cebe8ebbdd#egg=django_email_obfuscator-master
+-e git+https://github.com/gandalfar/django-email-obfuscator.git@5c21604ee9faee33d39fdc210f2f92cebe8ebbdd#egg=django_email_obfuscator-origin
 django-floppyforms==1.2.0
 django-haystack==2.2.0
--e git+https://github.com/fajran/django-loginurl.git@096a0bbf17f1944448ef9e6f7390690c06c07df5#egg=django_loginurl-master
+-e git+https://github.com/fajran/django-loginurl.git@096a0bbf17f1944448ef9e6f7390690c06c07df5#egg=django_loginurl-origin
 django-vanilla-views==1.0.3
 gnureadline==6.3.3
 ipdb==0.8
@@ -17,6 +17,7 @@ python-dateutil==2.2
 python-magic==0.4.6
 python-ptrace==0.7
 pytz==2014.4
+raven==5.0.0
 requests==2.3.0
 six==1.7.3
 waitress==0.8.9

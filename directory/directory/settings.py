@@ -22,6 +22,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'haystack',
     'email_obfuscator',
+    'raven.contrib.django.raven_compat',
 
     'directory',
     'web',
