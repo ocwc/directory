@@ -18,6 +18,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'loginurl',
     'crispy_forms',
     'haystack',
     'email_obfuscator',
@@ -35,6 +36,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'loginurl.backends.LoginUrlBackend',    
+)
+
 ROOT_URLCONF = 'directory.urls'
 WSGI_APPLICATION = 'directory.wsgi.application'
 
@@ -46,6 +52,9 @@ USE_L10N = True
 USE_TZ = False
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/directory/edit/'
+LOGIN_URL = '/directory/login/'
 
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 100
 

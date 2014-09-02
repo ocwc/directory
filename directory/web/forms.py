@@ -93,7 +93,6 @@ class PersonCreateForm(forms.ModelForm):
 
     def clean_email(self):
         data = self.cleaned_data['email']
-        print(data)
         if User.objects.filter(email=data).exists():
             raise forms.ValidationError(mark_safe('Profile with this email already exists. Please <a href="/directory/login/" class="btn btn-primary">Login</a> to edit your profile.'))
 
@@ -112,3 +111,24 @@ class PersonCreateForm(forms.ModelForm):
                     'discipline', 'region', 'personal_statement', 
                     'external_links', 
             )
+
+class LoginForm(forms.Form):
+    email = forms.EmailField()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+
+        self.helper.layout = Layout(
+            Field('email'),
+            ButtonHolder(
+                Submit('submit', 'Submit', css_class='col-sm-3')
+            )
+        )
+
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        if not User.objects.filter(email=data).exists():
+            raise forms.ValidationError(mark_safe('Profile with this email does not exist.'))
+
+        return data
