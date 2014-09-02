@@ -52,7 +52,7 @@ class Person(models.Model):
 
     user = models.ForeignKey(User, null=True)
 
-    email = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
     alternative_contact = models.CharField(max_length=255, blank=True)
 
     slug = models.SlugField(max_length=255)
