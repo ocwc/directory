@@ -12,7 +12,8 @@ class PersonIndex(indexes.SearchIndex, indexes.Indexable):
     mooc_expertise = indexes.MultiValueField(faceted=True)
     
     region = indexes.MultiValueField(faceted=True)
-    
+    country = indexes.MultiValueField(faceted=True)
+
     pub_date = indexes.DateTimeField(model_attr='pub_date')
 
     def get_model(self):
@@ -32,6 +33,10 @@ class PersonIndex(indexes.SearchIndex, indexes.Indexable):
 
     def prepare_region(self, obj):
         return [region.name for region in obj.region.all().order_by('name')]
+
+    def prepare_country(self, obj):
+        if obj.country:
+            return obj.country.name
 
     def index_queryset(self, using=None):
         return self.get_model().objects.filter(pub_date__lte=datetime.datetime.now())

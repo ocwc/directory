@@ -15,17 +15,21 @@
 }
 
 .facets, .expertise {
-	dl { margin-bottom: 5px; }
+	dl { margin-bottom: 0px; }
 
 	dd { 
 		font-size: 14px;
-		padding-left: 16px;
+		// padding-left: 16px;
 	}
 
 	.selected-false {
 		dd { display: none; }
 	}
 
+	dd a.selected-true {
+		font-weight: bold;
+		background-color: #eee;
+	}
 }
 
 .expertise {

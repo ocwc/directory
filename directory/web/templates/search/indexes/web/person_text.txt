@@ -18,3 +18,4 @@
 {{ object.region.all|join:" " }}
 {{ object.personal_statement }}
 {{ object.external_links }}
+{{ object.country.name }}

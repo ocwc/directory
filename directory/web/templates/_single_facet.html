@@ -1,3 +1,5 @@
+{% load faceting %}
+
 {% for facet in facet_object %}
-	<dd class="btn btn-block btn-default btn-square btn-facet"><a href="/directory/search/?selected_facets={{ facet_slug }}_exact:{{ facet.0|urlencode }}">{{ facet.0 }}</a> ({{ facet.1 }})</dd>
+	<dd><a class="btn btn-block btn-default btn-square btn-facet selected-{% is_facet_selected facet.0 %}" href="/directory/search/?selected_facets={{ facet_slug }}_exact:{{ facet.0|urlencode }}">{{ facet.0 }}</a></dd>
 {% endfor %}

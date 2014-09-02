@@ -5,7 +5,7 @@ from optparse import make_option
 from django.core.management.base import BaseCommand
 from django.utils.text import slugify
 
-from web.models import Person, Address, GeneralExpertise, OERExpertise, OpenAccessExpertise, MOOCExpertise, Region
+from web.models import Person, Country, GeneralExpertise, OERExpertise, OpenAccessExpertise, MOOCExpertise, Region
 
 class Command(BaseCommand):
     help = "imports CSV created by Wordpress form"
@@ -34,14 +34,14 @@ class Command(BaseCommand):
             curr_row += 1
             row = sheet.row(curr_row)
 
-            address = Address.objects.create(
-                street_address = row[5].value, #  5 - Address (Street Address)
-                street_address2 = row[6].value, #  6 - Address (Address Line 2)
-                city = row[7].value,            #  7 - Address (City)
-                state_province = row[8].value,  #  8 - Address (State / Province)
-                zip_postal = row[9].value,      #  9 - Address (ZIP / Postal Code)
-                country = row[10].value         # 10 - Address (Country)
-            )
+            city = row[7].value,            #  7 - Address (City)
+            state_province = row[8].value,  #  8 - Address (State / Province)
+            country_row = row[10].value         # 10 - Address (Country)
+
+            if country_row:
+                country = Country.objects.get(name=country_row)
+            else:
+                country = None
 
             first_name = row[0].value
             last_name = row[1].value
@@ -60,18 +60,21 @@ class Command(BaseCommand):
 
                         language_native = row[13].value,    # 13 - Native/near native level
                         language_business = row[14].value,  # 14 - Business level
-                        language_conversational = row[15].value # 15 - Conversational
+                        language_conversational = row[15].value, # 15 - Conversational
+
+                        country = country,
+                        city = [city][0][0],
+                        state_province = state_province[0]
                 )
             )
-            person.address = address
 
             is_member_value = row[4].value  #  4 - Open Education Consortium member?
             if is_member_value == 'Yes':
-                is_member = True
+                is_member = 1
             elif is_member_value == 'No':
-                is_member = False
+                is_member = 2
             else:
-                is_member = None
+                is_member = 0
 
             person.is_member = is_member
             person.save()

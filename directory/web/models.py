@@ -30,31 +30,37 @@ class Region(models.Model):
 	def __str__(self):
 		return self.name
 
-class Address(models.Model):
-	street_address = models.CharField(max_length=255, blank=True)
-	street_address2 = models.CharField(max_length=255, blank=True)
-	city = models.CharField(max_length=255, blank=True)
-	state_province = models.CharField(max_length=255, blank=True)
-	zip_postal = models.CharField(max_length=255, blank=True)
-	country = models.CharField(max_length=255, blank=True)
+class Country(models.Model):
+	name = models.CharField(max_length=255)
+	iso_code = models.CharField(max_length=6)
 
 	def __str__(self):
-		return self.country
+		return self.name
+
+IS_MEMBER_CHOICES = (
+	(0, "Don't know"),
+	(1, "Yes"),
+	(2, "No")
+)
 
 class Person(models.Model):
 	first_name = models.CharField(max_length=255)
 	last_name = models.CharField(max_length=255)
 
+	email = models.CharField(max_length=255)
+	alternative_contact = models.CharField(max_length=255, blank=True)
+
 	slug = models.SlugField(max_length=255)
 
 	job_title = models.CharField(max_length=255, blank=True)
 	institution = models.CharField(max_length=255, blank=True)
-	is_member = models.NullBooleanField(default=None,
-										verbose_name=u'Open Education Consortium member?')
-	address = models.ForeignKey(Address, null=True)
+	is_member = models.CharField(max_length=10,
+									choices=IS_MEMBER_CHOICES,
+									verbose_name=u'Open Education Consortium member?')
 
-	email = models.CharField(max_length=255)
-	alternative_contact = models.CharField(max_length=255, blank=True)
+	city = models.CharField(max_length=255, blank=True)
+	state_province = models.CharField(max_length=255, blank=True)
+	country = models.ForeignKey(Country, null=True)
 
 	language_native = models.TextField(blank=True, verbose_name=u'Native/near native level')
 	language_business = models.TextField(blank=True, verbose_name=u'Business level')
@@ -84,6 +90,8 @@ class Person(models.Model):
 
 	pub_date = models.DateTimeField(auto_now_add=True)
 	mod_date = models.DateTimeField(auto_now=True)
+
+	visible = models.BooleanField(default=True)
 
 	def __str__(self):
 		return u"{0} {1}".format(self.first_name, self.last_name)

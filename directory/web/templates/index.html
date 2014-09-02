@@ -12,12 +12,12 @@
 <div class="container">
     <div class="col-sm-6">
         <form action="/directory/search/" method="GET" class="form-horizontal" role="form">
-            <div class="col-sm-8">
+            <div class="col-xs-8">
                 <div class="form-group">
                     <input type="text" id="right-label" name="q" class="form-control left-rounded" placeholder="Search for professionals and disciplines ... ">
                 </div>
             </div>
-            <div class="col-sm-4 no-padding">
+            <div class="col-xs-4 no-padding">
                 <button class="btn btn-block btn-primary right-rounded">Search</button>
             </div>
         </form>
@@ -26,7 +26,7 @@
         <div class="col-sm-3 search-row-buttons pull-right no-padding">
             <button class="btn btn-primary btn-block right-rounded">Login</button>
         </div>
-        <div class="col-sm-4 search-row-buttons pull-right no-padding-right">
+        <div class="col-sm-5 col-md-4 search-row-buttons pull-right no-padding-right">
             <a href="{% url 'directory:person-create' %}" class="btn btn-success btn-block left-rounded">Add Yourself</a>
         </div>
     </div>
@@ -34,40 +34,40 @@
 
 <div class="container">
     <div class="col-sm-6 expertise">
-        <h2>Browse by Expertise</h2>
+        <h3>Browse by Expertise</h3>
 
         <dl class="selected-false">
             <dt class="btn btn-block btn-square btn-general">General <i class="icon-caret-down"></i></dt>
             {% for item in general_expertise %}
-                <dd class="btn btn-block btn-default btn-square btn-facet"><a href="/directory/search/?selected_facets=general_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+                <dd><a class="btn btn-block btn-default btn-square" href="/directory/search/?selected_facets=general_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
             {% endfor %}
         </dl>
 
         <dl class="selected-false">
             <dt class="btn btn-block btn-square btn-oer">OER <i class="icon-caret-down"></i></dt>
             {% for item in oer_expertise %}
-                <dd class="btn btn-block btn-default btn-square btn-facet"><a href="/directory/search/?selected_facets=oer_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+                <dd><a class="btn btn-block btn-default btn-square btn-facet" href="/directory/search/?selected_facets=oer_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
             {% endfor %}
         </dl>
 
         <dl class="selected-false">
             <dt class="btn btn-block btn-square btn-openaccess">Open Access <i class="icon-caret-down"></i></dt>
             {% for item in openacess_expertise %}
-                <dd class="btn btn-block btn-default btn-square btn-facet"><a href="/directory/search/?selected_facets=openacess_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+                <dd><a class="btn btn-block btn-default btn-square btn-facet" href="/directory/search/?selected_facets=openacess_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
             {% endfor %}
         </dl>
 
         <dl class="selected-false">
             <dt class="btn btn-block btn-square btn-mooc btn-facet">MOOC <i class="icon-caret-down"></i></dt>
             {% for item in mooc_expertise %}
-                <dd class="btn btn-block btn-default btn-square"><a href="/directory/search/?selected_facets=mooc_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
+                <dd><a class="btn btn-block btn-default btn-square btn-facet" href="/directory/search/?selected_facets=mooc_expertise_exact:{{ item.name|urlencode }}">{{ item.name }} ({{ item.person_set.count }})</a></dd>
             {% endfor %}
         </dl>
     </div>
 
 
     <div class="col-sm-5 region pull-right">
-        <h2>Browse by Region</h2>
+        <h3>Browse by Region of Experience</h3>
         {% for item in region %}
             <a href="/directory/search/?selected_facets=region_exact:{{ item.name|urlencode }}" class="btn btn-block btn-square btn-region-{{ item.name|slugify }}">{{ item.name }}</a>
         {% endfor %}

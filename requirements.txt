@@ -1,9 +1,12 @@
-Django==1.6.5
+Django==1.7c3
 argparse==1.2.1
--e git+https://github.com/gandalfar/django-email-obfuscator.git@5c21604ee9faee33d39fdc210f2f92cebe8ebbdd#egg=django_email_obfuscator-origin
+django-crispy-forms==1.4.0
+-e git+https://github.com/gandalfar/django-email-obfuscator.git@5c21604ee9faee33d39fdc210f2f92cebe8ebbdd#egg=django_email_obfuscator-master
+django-floppyforms==1.2.0
 django-haystack==2.2.0
 django-vanilla-views==1.0.3
 gnureadline==6.3.3
+ipdb==0.8
 ipython==2.2.0
 lxml==3.3.5
 psycopg2==2.5.3

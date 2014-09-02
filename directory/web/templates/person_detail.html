@@ -14,13 +14,13 @@
 		<dt>Institution</dt>
 		<dd>{{ person.institution }}</dd>
 	</dl>
-	{% if person.address.country %}
+	{% if person.country or person.city or person.state_province %}
 	<dl>
 		<dt>Location</dt>
 		<dd>
-			{% if person.address.city %}{{ person.address.city }}, {% endif %}
+			{% if person.city %}{{ person.city }}, {% endif %}
 			{% if person.state_province %}{{ person.state_province }}, {% endif %}
-			{{ person.address.country }}
+			{% if person.country %}<strong>{{ person.country }}</strong>{% endif %}
 		</dd>
 	</dl>
 	{% endif %}
