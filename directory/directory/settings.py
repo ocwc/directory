@@ -57,6 +57,7 @@ LOGIN_REDIRECT_URL = '/directory/edit/'
 LOGIN_URL = '/directory/login/'
 
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 100
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
