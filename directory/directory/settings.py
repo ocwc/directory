@@ -54,7 +54,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-LOGGING = {
+LOGGING_DISABLED = {
     'version': 1,
     'disable_existing_loggers': True,
     'root': {
