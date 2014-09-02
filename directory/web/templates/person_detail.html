@@ -4,6 +4,19 @@
 
 <div class="col-sm-12">
 	<h3><a href="/directory">The Open Professionals Directory</a></h3>
+</div>
+
+{% if messages %}
+<div class="col-sm-12">
+	<ul class="messages">
+	    {% for message in messages %}
+	    <div class="alert {% if message.tags %} alert-{{ message.tags }}"{% endif %}>{{ message|safe }}</div>
+	    {% endfor %}
+	</ul>
+</div>
+{% endif %}
+
+<div class="col-sm-12">
 	<h1>{{ person.first_name }} {{ person.last_name }}{% if person.job_title %}, {{ person.job_title }}{% endif %}</h1>
 </div>
 

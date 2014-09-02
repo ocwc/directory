@@ -6,4 +6,8 @@ jQuery(document).ready(function($) {
     $('.expertise dt').click(function(){
         $(this).parent('dl').toggleClass('selected-false');
     });
+
+    $('.form-group').each(function(index, el) {
+        $(el).addClass('clearfix');
+    });
 });

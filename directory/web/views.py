@@ -1,3 +1,5 @@
+from django.contrib import messages
+
 from vanilla import TemplateView, DetailView, CreateView
 
 from haystack.forms import FacetedSearchForm
@@ -31,3 +33,11 @@ class PersonDetailView(DetailView):
 class PersonCreateView(CreateView):
     model = Person
     form_class = PersonCreateForm
+
+    def form_valid(self, *args, **kwargs):
+        messages.add_message(self.request, messages.SUCCESS, 
+            'Thank you for adding your profile to The Open Professionals Directory. '
+            'To edit it, you will have to first <a href="/directory/login/" class="btn btn-primary">Login</a>'
+        )
+
+        return super().form_valid(*args, **kwargs)

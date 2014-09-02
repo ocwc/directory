@@ -1,0 +1,20 @@
+.form-group {
+	.control-label {
+		margin-bottom: 0;
+	}
+}
+
+textarea.form-control {
+	height: 100px;
+}
+
+#id_general_expertise_other,
+#id_oer_expertise_other,
+#id_openacess_expertise_other,
+#id_mooc_expertise_other {
+	height: 50px;
+}
+
+.checkbox-inline+.checkbox-inline {
+	margin-left: 0;
+}

@@ -1,21 +1,24 @@
 from django import forms
+from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
+
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, Div, HTML
+from crispy_forms.layout import Submit, Layout, Field, Div, HTML, ButtonHolder
 from crispy_forms.bootstrap import InlineRadios, InlineCheckboxes
 
 from web.models import Person
+from web.models import IS_MEMBER_CHOICES
 
 class PersonCreateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         
-        self.helper.form_class = 'form-horizontal'
-        self.helper.label_class = 'col-sm-3'
+        self.helper.form_class = 'form'
+        self.helper.label_class = 'col-sm-12'
         self.helper.field_class = 'col-sm-8'
 
-        # TODO - Initial
-        self.fields['is_member'].choices = ((1, 'Yes'), (0, 'No'), (2, "Don't know"))
+        self.fields['is_member'].choices = IS_MEMBER_CHOICES
         
         self.fields['general_expertise'].help_text = ''
         self.fields['oer_expertise'].help_text= ''
@@ -65,13 +68,13 @@ class PersonCreateForm(forms.ModelForm):
         ))
 
         self.helper.layout.append(Layout(
-            Div(HTML("<h2>Open Access</h2>")),
+            Div(HTML("<h2>Open Access</h2>"), css_class='col-sm-10'),
             InlineCheckboxes('openacess_expertise', template="bootstrap3/layout/checkboxselectmultiple_inline_fullwidth.html"),
             Field('openacess_expertise_other', css_class='col-sm-12')
         ))
 
         self.helper.layout.append(Layout(
-            Div(HTML("<h2>MOOCs</h2>")),
+            Div(HTML("<h2>Massive open online courses</h2>"), css_class='col-sm-10'),
             InlineCheckboxes('mooc_expertise', template="bootstrap3/layout/checkboxselectmultiple_inline_fullwidth.html"),
             Field('mooc_expertise_other', css_class='col-sm-12')
         ))
@@ -80,15 +83,21 @@ class PersonCreateForm(forms.ModelForm):
             Field('discipline'),
             InlineCheckboxes('region', template="bootstrap3/layout/checkboxselectmultiple_inline_fullwidth.html"),
             Field('personal_statement'),
-            Field('external_links')
+            Field('external_links'),
+
+            ButtonHolder(
+                Submit('submit', 'Submit', css_class='col-sm-3'),
+                css_class="col-sm-12"
+            )
         ))
 
-        self.helper.add_input(Submit('submit', 'Submit'))
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        print(data)
+        if User.objects.filter(email=data).exists():
+            raise forms.ValidationError(mark_safe('Profile with this email already exists. Please <a href="/directory/login/" class="btn btn-primary">Login</a> to edit your profile.'))
 
-    def save(self):
-        # is_member fields
-
-        pass
+        return data
     
     class Meta:
         model = Person
