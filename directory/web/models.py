@@ -108,7 +108,7 @@ class Person(models.Model):
                 next += 1
 
         if not self.user:
-            User.objects.get_or_create(
+            user, is_created = User.objects.get_or_create(
                 email = self.email,
                 defaults = {
                     'username': self.slug[:30],
@@ -117,6 +117,7 @@ class Person(models.Model):
                     'is_active': True
                 }
             )
+            self.user = user
 
         super().save(*args, **kwargs)
 

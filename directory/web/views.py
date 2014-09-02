@@ -1,16 +1,20 @@
+import datetime
+
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 
-from vanilla import TemplateView, FormView, DetailView, CreateView
+from braces.views import LoginRequiredMixin, AnonymousRequiredMixin
+from vanilla import TemplateView, FormView, DetailView, CreateView, UpdateView
 
 from haystack.forms import FacetedSearchForm
 import loginurl.utils
 
 from web.models import Person, GeneralExpertise, OERExpertise, OpenAccessExpertise, MOOCExpertise, Region
-from web.forms import PersonCreateForm, LoginForm
+from web.forms import PersonCreateForm, LoginForm, PersonUpdateForm
 
 class IndexView(TemplateView):
     template_name = "index.html"
@@ -33,7 +37,9 @@ class LoginView(FormView):
         email = form.cleaned_data.get('email')
         user = User.objects.filter(email=email).first()
 
-        key = loginurl.utils.create(user)
+        expires = datetime.datetime.now() + datetime.timedelta(days=7)
+        key = loginurl.utils.create(user, usage_left=None, expires=expires)
+
         url = 'http://www.oeconsortium.org/directory/login/{0}'.format(key.key)
 
         body = render_to_string('login_mail_body.txt', {'url': url})
@@ -52,7 +58,7 @@ class PersonDetailView(DetailView):
     lookup_field = 'slug'
     context_object_name = 'person'
 
-class PersonCreateView(CreateView):
+class PersonCreateView(AnonymousRequiredMixin, CreateView):
     model = Person
     form_class = PersonCreateForm
 
@@ -63,3 +69,19 @@ class PersonCreateView(CreateView):
         )
 
         return super().form_valid(*args, **kwargs)
+
+class PersonUpdateView(LoginRequiredMixin, UpdateView):
+    model = Person
+    form_class = PersonUpdateForm
+
+    def get_object(self):
+        person = Person.objects.filter(user=self.request.user).first()
+        if not person:
+            raise ObjectDoesNotExist('Your profile does not exist')
+
+        return person
+
+    # def get_form(self, data=None, files=None, **kwargs):
+    # #     kwargs['initial'] = self.get_object()
+
+    #     return self.get_form_class()(data, files, **kwargs)

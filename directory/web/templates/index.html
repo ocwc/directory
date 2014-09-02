@@ -23,12 +23,21 @@
         </form>
     </div>
     <div class="col-sm-6">
-        <div class="col-sm-3 search-row-buttons pull-right no-padding">
-            <a href="{% url 'directory:login' %}" class="btn btn-primary btn-block right-rounded">Login</a>
-        </div>
-        <div class="col-sm-5 col-md-4 search-row-buttons pull-right no-padding-right">
-            <a href="{% url 'directory:person-create' %}" class="btn btn-success btn-block left-rounded">Add Yourself</a>
-        </div>
+        {% if user.is_authenticated %}
+            <div class="col-sm-3 search-row-buttons pull-right no-padding">
+                <a href="{% url 'directory:logout' %}" class="btn btn-primary btn-block right-rounded">Logout</a>
+            </div>
+            <div class="col-sm-7 col-md-6 search-row-buttons pull-right no-padding-right">
+                <a href="{% url 'directory:person-update' %}" class="btn btn-success btn-block left-rounded">Edit Your Profile</a>
+            </div>
+        {% else %}
+            <div class="col-sm-3 search-row-buttons pull-right no-padding">
+                <a href="{% url 'directory:login' %}" class="btn btn-primary btn-block right-rounded">Login</a>
+            </div>
+            <div class="col-sm-5 col-md-4 search-row-buttons pull-right no-padding-right">
+                <a href="{% url 'directory:person-create' %}" class="btn btn-success btn-block left-rounded">Add Yourself</a>
+            </div>
+        {% endif %}
     </div>
 </div>
 

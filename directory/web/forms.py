@@ -11,7 +11,8 @@ from web.models import IS_MEMBER_CHOICES
 
 class PersonCreateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(PersonCreateForm, self).__init__(*args, **kwargs)
+
         self.helper = FormHelper()
         
         self.helper.form_class = 'form'
@@ -111,6 +112,17 @@ class PersonCreateForm(forms.ModelForm):
                     'discipline', 'region', 'personal_statement', 
                     'external_links', 
             )
+
+class PersonUpdateForm(PersonCreateForm):
+    def __init__(self, *args, **kwargs):
+        super(PersonUpdateForm, self).__init__(*args, **kwargs)
+
+        self.fields['email'].widget.attrs['readonly'] = 'True'
+
+    def clean_email(self):
+        data = self.cleaned_data['email']
+
+        return data
 
 class LoginForm(forms.Form):
     email = forms.EmailField()
