@@ -64,7 +64,7 @@ class PersonCreateView(AnonymousRequiredMixin, CreateView):
 
     def form_valid(self, *args, **kwargs):
         messages.add_message(self.request, messages.SUCCESS, 
-            'Thank you for adding your profile to The Open Professionals Directory. '
+            'Thank you for adding your profile to The Open Education Professional Directory. '
             'To edit it, you will have to first <a href="/directory/login/" class="btn btn-primary">Login</a>'
         )
 

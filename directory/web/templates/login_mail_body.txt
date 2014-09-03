@@ -1,4 +1,4 @@
-To login to your Open Professionals Directory account, please click on the following link:
+To login to your Open Education Professional Directory account, please click on the following link:
 
 {{ url }}
 
