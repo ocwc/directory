@@ -23,7 +23,7 @@ class Command(BaseCommand):
             self.import_form(filename=options.get('file'))
 
     def import_form(self, filename):
-        Person.objects.all().delete()
+        # Person.objects.all().delete()
 
         book = xlrd.open_workbook(filename)
         sheet = book.sheet_by_name('Sheet1')
