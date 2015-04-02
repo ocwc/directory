@@ -29,8 +29,8 @@
 	<dl>
 		<dt>Location</dt>
 		<dd>
-			{% if person.city %}{{ person.city }}, {% endif %}
-			{% if person.state_province %}{{ person.state_province }}, {% endif %}
+			{% if person.city %}{{ person.city }}, <br />{% endif %}
+			{% if person.state_province %}{{ person.state_province }}, <br />{% endif %}
 			{% if person.country %}<strong>{{ person.country }}</strong>{% endif %}
 		</dd>
 	</dl>
