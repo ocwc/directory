@@ -1,5 +1,7 @@
 {% extends "base.html" %}{% load email_obfuscator %}
 
+{% block title %}{{ person.first_name }} {{ person.last_name }}{% if person.job_title %}, {{ person.job_title }}{% endif %} | {{ block.super }}{% endblock %}
+
 {% block contents %}
 
 <div class="col-sm-12">
