@@ -29,6 +29,7 @@ class IndexView(TemplateView):
 
         return context
 
+
 class LoginView(FormView):
     template_name = "login.html"
     form_class = LoginForm
@@ -40,7 +41,7 @@ class LoginView(FormView):
         expires = datetime.datetime.now() + datetime.timedelta(days=7)
         key = loginurl.utils.create(user, usage_left=None, expires=expires)
 
-        url = 'http://www.oeconsortium.org/directory/login/{0}'.format(key.key)
+        url = 'https://www.oeconsortium.org/directory/login/{0}'.format(key.key)
 
         body = render_to_string('login_mail_body.txt', {'url': url})
         subject = render_to_string('login_mail_subject.txt')
