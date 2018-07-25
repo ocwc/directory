@@ -45,7 +45,7 @@ class LoginView(FormView):
 
         body = render_to_string('login_mail_body.txt', {'url': url})
         subject = render_to_string('login_mail_subject.txt')
-        send_mail(subject, body, 'directory@oeconsortium.org', [email])        
+        send_mail(subject, body, 'memberservices@oeconsortium.org', [email])
 
         return render(self.request, "login_emailsent.html")
 
